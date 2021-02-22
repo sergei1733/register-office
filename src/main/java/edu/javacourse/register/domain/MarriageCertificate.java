@@ -15,10 +15,10 @@ public class MarriageCertificate {
     @Column(name = "date_issue")
     private LocalDate issueDate;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @Column(name = "father_id")
+    @Column(name = "husband_id")
     private PersonMale husband;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @Column(name = "mother_id")
+    @Column(name = "wife_id")
     private PersonFemale wife;
     @Column(name = "active")
     private boolean active;
