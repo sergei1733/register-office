@@ -7,6 +7,8 @@ import java.util.List;
 
 @Table(name="ro_person")
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "sex",discriminatorType = DiscriminatorType.INTEGER)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,7 @@ public class Person {
     private String patronymic;
     @Column(name = "date_birth")
     private LocalDate dateOfBirth;
+    @OneToMany(cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY, mappedBy = "person")
     private List<Passport> passports;
 
     public Long getPersonId() {
@@ -29,6 +32,8 @@ public class Person {
     public void setPersonId(Long personId) {
         this.personId = personId;
     }
+
+
 
     public String getFirstname() {
         return firstname;
