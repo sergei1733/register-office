@@ -14,7 +14,7 @@ public class Passport {
     @ManyToOne(cascade = {CascadeType.REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
     private Person person;
-    @Column(name = "setia")
+    @Column(name = "seria")
     private String seria;
     @Column(name = "number")
     private String number;
