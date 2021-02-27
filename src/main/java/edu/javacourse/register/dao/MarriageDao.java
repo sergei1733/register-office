@@ -6,6 +6,7 @@ import edu.javacourse.register.view.MarriageRequest;
 import edu.javacourse.register.view.MarriageResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggerFactory.class);
 
     private EntityManager entityManager;
+    @Value("SIMPLE")
     private String test;
 
     public void setTest(String test) {
