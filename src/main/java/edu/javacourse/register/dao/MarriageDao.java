@@ -7,26 +7,16 @@ import edu.javacourse.register.view.MarriageResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
-@Component
-public class MarriageDao {
+@Repository
+public interface MarriageDao extends JpaRepository<MarriageCertificate, Long> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoggerFactory.class);
-
-    private EntityManager entityManager;
-    @Value("SIMPLE")
-    private String test;
-
-    public void setTest(String test) {
-        this.test = test;
-    }
-
-    public MarriageCertificate findMarriageCertificate(MarriageRequest request){
-        LOGGER.info("findMarriageCertificate called", test);
-
-        return null;
-    }
+    List<MarriageCertificate> findByNum(@Param("number") String number);
 }
