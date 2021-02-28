@@ -42,8 +42,14 @@ public class MarriageManager {
         marriageDao.saveAndFlush(mc);
 
 //        marriageDao.findAll();
-        List<MarriageCertificate> list = marriageDao.findByNumberContaining("234");
+        List<MarriageCertificate> list = marriageDao.findByNumber("12345");
         list.forEach(m -> LOGGER.info("MC:{}",m.getMarriageCertificateId()));
+        LOGGER.info("--------->>>>>>>>>>>>>>");
+        List<MarriageCertificate> list2 = marriageDao.findByNum("98765");
+        list2.forEach(m -> LOGGER.info("MC:{}",m.getMarriageCertificateId()));
+        LOGGER.info("--------->>>>>>>>>>>>>>");
+        List<MarriageCertificate> list3 = marriageDao.findSomething("01928");
+        list3.forEach(m -> LOGGER.info("MC:{}",m.getMarriageCertificateId()));
 
 
         return new MarriageResponse();
